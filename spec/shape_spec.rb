@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'firstgem'
 
 describe 'Shape' do
   it "should initialize with no name" do
