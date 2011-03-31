@@ -27,6 +27,16 @@ To make sure things are working properly, you can do this from irb:
     require "bundler/setup"
     require "firstgem"
 
+Some simple tests
+
+    a = Shape.new('triangle') # The ruby part of the gem
+    a.describe
+     => "I am a triangle."
+    b = Calculator.new  # The native extension
+    b.Add(2+2)
+     => 4.0
+
+
 More troubleshooting tips on the [Bundler page](https://github.com/carlhuda/bundler/blob/master/ISSUES.md)
 
 Developers
