@@ -8,11 +8,26 @@ Installation
 
 Add gem to the Gemfile:
 
-    # Not tested yet!
     # TODO: test on private repository
     gem 'firstgem', source => 'git://github.com/bdwong/firstgem.git'
 
 Then just bundle install and you're good to go!
+
+Troubleshooting
+---------------
+
+Gems installed from github do not show up on the gem list.
+You can see the gems with:
+
+    bundle list
+
+To make sure things are working properly, you can do this from irb:
+
+    require "rubygems"
+    require "bundler/setup"
+    require "firstgem"
+
+More troubleshooting tips on the [Bundler page](https://github.com/carlhuda/bundler/blob/master/ISSUES.md)
 
 Developers
 ----------
