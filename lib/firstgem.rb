@@ -1,4 +1,5 @@
 require 'firstgem/shape'
+require 'firstgem.bundle'
 include Firstgem
 
 module Firstgem
