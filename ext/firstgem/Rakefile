@@ -1,0 +1,53 @@
+require 'rake'
+require 'fileutils'
+
+# Build the extension with Rake.
+# Most of this is duplicated functionality except for the wrapper task.
+
+SWIG = "swig"
+
+extname = "firstgem"
+extlib = "#{extname}.#{RbConfig::CONFIG["DLEXT"]}"
+install_dir = "../../lib"
+installed_lib = File.join(install_dir, extlib)
+
+file 'Makefile' do
+  `ruby extconf.rb`
+end
+
+task :build => ['Makefile'] do
+  `make`
+end
+
+task extlib => :build
+
+desc "Install extension into the gem lib folder"
+task :install => extlib do
+  File.delete installed_lib if File.exists?(installed_lib)
+  FileUtils.move(extlib, install_dir)
+end
+
+desc "Remove generated extension files."
+task :clean do
+  `rm #{installed_lib}`
+  `rm Makefile`
+  `rm *.o`
+end
+
+desc "Run swig wrapper generator on all .i interface files."
+task :wrapper do
+  `#{SWIG} -c++ -ruby *.i`
+  
+  # Replace STR2CSTR with StringValuePtr for Ruby 1.9
+  if RUBY_VERSION =~ /^1.9/
+    if RUBY_PLATFORM =~ /darwin/ 
+      `sed -i '' -e 's/STR2CSTR/StringValuePtr/' *.cxx`
+    else
+      `sed -i -e 's/STR2CSTR/StringValuePtr/' *.cxx`
+    end
+  end
+  
+end
+
+task :default => :install
+
