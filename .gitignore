@@ -1,5 +1,7 @@
 *.gem
 *.bundle
+*.so
+*.dll
 Gemfile.lock
 pkg/*
 tmp/
