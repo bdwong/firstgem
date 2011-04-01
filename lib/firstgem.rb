@@ -1,10 +1,9 @@
 require 'firstgem/shape'
-begin
-  require 'firstgem_calc' # include the native extension. Ruby automatically appends the correct file extension.
-rescue
-  puts "Fallback: require 'firstgem_calc.bundle'"
-  require 'firstgem_calc.bundle' # Is this needed?
-end
+require 'rbconfig'
+
+# include the native extension explicitly
+# since there is already .rb file with the same name.
+require "firstgem.#{RbConfig::CONFIG["DLEXT"]}"
 
 include Firstgem
 
