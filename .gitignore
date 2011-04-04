@@ -2,8 +2,10 @@
 *.bundle
 *.so
 *.dll
+mkmf.log
 Gemfile.lock
 pkg/*
 tmp/
 .idea/
 nbproject/
+
