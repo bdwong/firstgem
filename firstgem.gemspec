@@ -14,7 +14,6 @@ Gem::Specification.new do |s|
 
   #s.rubyforge_project = "firstgem"
   s.add_development_dependency "rspec"
-  #s.add_development_dependency "rake-compiler"
 
   s.files         = `git ls-files`.split("\n")
   s.extensions = Dir.glob("ext/**/extconf.rb")
