@@ -15,6 +15,9 @@ task :spec => :compile
 desc "Build extensions if any are present."
 task :compile
 
+desc "Clean extensions if any are present."
+task :clean
+
 # Add Rakefile tasks from the extension directories.
 Dir.glob('ext/*/').each do |f|
   ext = File.basename(f)
@@ -44,6 +47,10 @@ Dir.glob('ext/*/').each do |f|
     # Add extension to main build task if the extension has a build task
     if Rake::Task.task_defined?("#{ext}:build")
       task :compile => "#{ext}:build"
+    end
+
+    if Rake::Task.task_defined?("#{ext}:clean")
+      task :clean => "#{ext}:clean"
     end
   end
 end
