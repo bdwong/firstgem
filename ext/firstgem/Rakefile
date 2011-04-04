@@ -15,14 +15,14 @@ file 'Makefile' do
   `ruby extconf.rb`
 end
 
-task :build => ['Makefile'] do
+task :compile => ['Makefile'] do
   `make`
 end
 
-task extlib => :build
+task extlib => :compile
 
-desc "Install extension into the gem lib folder"
-task :install => extlib do
+desc "Build extension and move to the gem lib folder"
+task :build => extlib do
   File.delete installed_lib if File.exists?(installed_lib)
   FileUtils.move(extlib, install_dir)
 end
@@ -49,5 +49,5 @@ task :wrapper do
   
 end
 
-task :default => :install
+task :default => :build
 
