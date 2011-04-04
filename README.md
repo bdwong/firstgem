@@ -58,7 +58,9 @@ Or you can do it manually with gem:
     $ gem install firstgem*.gem
 
 
-Sources:
+References
+----------
+
  * [Using Gemspecs as Intended](http://yehudakatz.com/2010/04/02/using-gemspecs-as-intended/)
  * [New Gem with Bundler](http://railscasts.com/episodes/245-new-gem-with-bundler)
  * [Creating and publishing your first rubygem](http://blog.thepete.net/2010/11/creating-and-publishing-your-first-ruby.html)
