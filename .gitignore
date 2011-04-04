@@ -8,4 +8,4 @@ pkg/*
 tmp/
 .idea/
 nbproject/
-
+.rvmrc
