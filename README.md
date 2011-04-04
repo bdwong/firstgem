@@ -45,22 +45,28 @@ Developers
 Clone the source from Github, then build for development:
 
     $ bundle install    # Install prerequisites
-    $ rake native       # Build the extension
+    $ rake compile      # Compile extensions if present
     $ rake spec         # run tests, for example.
 
 For local installation, the recommended way is:
 
+    $ rake install      # Build and install the gem
+
+Or you can do it manually with gem:
+
     $ gem build firstgem.gemspec
     $ gem install firstgem*.gem
 
-Sources:
 
+Sources:
+ * [Using Gemspecs as Intended](http://yehudakatz.com/2010/04/02/using-gemspecs-as-intended/)
+ * [New Gem with Bundler](http://railscasts.com/episodes/245-new-gem-with-bundler)
  * [Creating and publishing your first rubygem](http://blog.thepete.net/2010/11/creating-and-publishing-your-first-ruby.html)
  * [Setup rspec to test a gem not rails](http://blog.thepete.net/2010/11/creating-and-publishing-your-first-ruby.html)
  * [rake-compiler](https://github.com/luislavena/rake-compiler)
- * [Using Gemspecs as Intended](http://yehudakatz.com/2010/04/02/using-gemspecs-as-intended/)
 
 Other Possibilities
 -------------------
 
+ * [Jeweler](https://github.com/technicalpickles/jeweler) is nice but uses shoulda instead of rspec.
  * [NewGem](http://newgem.rubyforge.org/) doesn't work with rspec 2 but it has some nice features.
